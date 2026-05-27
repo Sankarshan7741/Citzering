@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📊 FIR Analytics Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header animate-slide-down">
+            <h1>📊 FIR Analytics Dashboard</h1>
+            <a href="index.html" class="back-btn">🌍 Back to Map</a>
+        </header>
+
+        <main class="dashboard-grid">
+            <section class="stats-row">
+                <div class="stat-card animate-fade-up delay-1">
+                    <h3>Total Cities</h3>
+                    <div class="value" id="d-total">0</div>
+                </div>
+                <div class="stat-card animate-fade-up delay-2">
+                    <h3>Critical Zones</h3>
+                    <div class="value danger" id="d-critical">0</div>
+                </div>
+                <div class="stat-card animate-fade-up delay-3">
+                    <h3>Pending FIRs</h3>
+                    <div class="value warning" id="d-pending">0</div>
+                </div>
+                <div class="stat-card animate-fade-up delay-4">
+                    <h3>Resolution Rate</h3>
+                    <div class="value" id="d-rate">0%</div>
+                </div>
+            </section>
+
+            <section class="charts-row">
+                <div class="chart-box animate-fade-up delay-5"><canvas id="barChart"></canvas></div>
+                <div class="chart-box animate-fade-up delay-6"><canvas id="doughnutChart"></canvas></div>
+            </section>
+
+            <section class="table-section animate-fade-up delay-7">
+                <div class="table-header">
+                    <h2>📋 City-wise FIR Data</h2>
+                    <input type="text" id="searchTable" placeholder="Search city...">
+                </div>
+                <table id="cityTable">
+                    <thead>
+                        <tr>
+                            <th>City</th>
+                            <th>Total FIR</th>
+                            <th>Pending</th>
+                            <th>Status</th>
+                            <th>Coords</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody"></tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+    <script src="dashboard.js"></script>
+</body>
+
+</html>

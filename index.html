@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citzering</title>
+    <script src="https://cesium.com/downloads/cesiumjs/releases/1.118/Build/Cesium/Cesium.js"></script>
+    <link href="https://cesium.com/downloads/cesiumjs/releases/1.118/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <aside class="sidebar animate-slide-right">
+        <h1>🌍 Safety Monitor</h1>
+        <p class="subtitle">FIR-Based Danger Zone Analysis</p>
+
+        <button class="dashboard-btn animate-fade-in delay-300" onclick="openDashboard()">📊 View Dashboard</button>
+
+        <div id="location-status" class="animate-fade-in delay-400">📍 Detecting your location...</div>
+
+        <div class="legend animate-fade-in delay-500">
+            <h3>Danger Levels</h3>
+            <div class="legend-item"><span class="indicator red"></span> Critical (1000+ FIR)</div>
+            <div class="legend-item"><span class="indicator orange"></span> High Risk (600-1000)</div>
+            <div class="legend-item"><span class="indicator yellow"></span> Moderate (300-600)</div>
+            <div class="legend-item"><span class="indicator green"></span> Safe (0-300)</div>
+            <div class="legend-item"><span class="indicator blue"></span> Your Location</div>
+        </div>
+
+            <div class="stats animate-slide-up delay-600">
+                <div class="stat">
+                    <div class="stat-value" id="total-cities">0</div>
+                    <div class="stat-label">Cities</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value danger" id="critical-cities">0</div>
+                    <div class="stat-label">Critical</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" id="pending-firs">0</div>
+                    <div class="stat-label">Pending FIRs</div>
+                </div>
+            </div>
+    </aside>
+
+    <div id="cesiumContainer"></div>
+
+    <div class="zoom-controls animate-fade-in delay-700">
+        <button id="zoom-in" class="zoom-btn">+</button>
+        <button id="zoom-out" class="zoom-btn">−</button>
+    </div>
+    <div class="zoom-info">🖱️ Scroll to zoom • Drag to rotate • Right-click to pan</div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
